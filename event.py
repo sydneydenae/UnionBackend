@@ -21,6 +21,9 @@ class MainApp(App):
         self.eventEndTime = TextInput(
             multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter the event end time(HH:MM)"
         )
+        self.eventLocation = TextInput(
+            multiline=True, readonly=False, halign="center", font_size=55, hint_text="Enter the location"
+        )
         self.eventDescription = TextInput(
             multiline=True, readonly=False, halign="center", font_size=55, hint_text="Enter a description for the event"
         )
@@ -31,6 +34,7 @@ class MainApp(App):
         main_layout.add_widget(self.eventDate)
         main_layout.add_widget(self.eventStartTime)
         main_layout.add_widget(self.eventEndTime)
+        main_layout.add_widget(self.eventLocation)
         main_layout.add_widget(self.eventDescription)
         main_layout.add_widget(self.eventContact)
         
@@ -50,18 +54,10 @@ class MainApp(App):
         Global.DATE = self.eventDate.text
         Global.STARTTIME = self.eventStartTime.text
         Global.ENDTIME = self.eventEndTime.text
+        Global.LOCATION = self.eventDescription.text
         Global.DESCRIPTION = self.eventDescription.text
         Global.CONTACT = self.eventContact.text
         
-        self.display_event(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.DESCRIPTION, Global.CONTACT)
-    
-    def display_event(self, name, date, start, end, description, contact):
-        print(name)
-        print(date)
-        print(start)
-        print(end)
-        print(description)
-        print(contact)
 
 
 if __name__ == "__main__":

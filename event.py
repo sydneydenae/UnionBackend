@@ -10,17 +10,29 @@ class MainApp(App):
         self.last_button = None
         main_layout = BoxLayout(orientation="vertical")
         self.eventName = TextInput(
-            multiline=False, readonly=False, halign="right", font_size=55
+            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event name"
         )
-        self.eventTime = TextInput(
-            multiline=False, readonly=False, halign="right", font_size=55
+        self.eventDate = TextInput(
+            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event date (MM/DD/YYYY)"
+        )
+        self.eventStartTime = TextInput(
+            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event start time(HH:MM)"
+        )
+        self.eventEndTime = TextInput(
+            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event end time(HH:MM)"
         )
         self.eventDescription = TextInput(
-            multiline=True, readonly=False, halign="right", font_size=55
+            multiline=True, readonly=False, halign="center", font_size=55, text="Enter a description for the event"
+        )
+        self.eventContact = TextInput(
+            multiline=False, readonly=False, halign="center", font_size=55, text="Enter a contact number (###-###-####)"
         )
         main_layout.add_widget(self.eventName)
-        main_layout.add_widget(self.eventTime)
+        main_layout.add_widget(self.eventDate)
+        main_layout.add_widget(self.eventStartTime)
+        main_layout.add_widget(self.eventEndTime)
         main_layout.add_widget(self.eventDescription)
+        main_layout.add_widget(self.eventContact)
         buttons = [
             ["7", "8", "9", "/"],
             ["4", "5", "6", "*"],
@@ -41,7 +53,7 @@ class MainApp(App):
         equals_button = Button(
             text="=", pos_hint={"center_x": 0.5, "center_y": 0.5}
         )
-        equals_button.bind(on_press=self.on_solution)
+        equals_button.bind(on_press=self.on_submit)
         main_layout.add_widget(equals_button)
 
         return main_layout
@@ -67,11 +79,27 @@ class MainApp(App):
         self.last_button = button_text
         self.last_was_operator = self.last_button in self.operators
 
-    def on_solution(self, instance):
-        text = self.eventName.text
-        if text:
-            solution = str(eval(self.eventName.text))
-            self.eventName.text = solution
+    #def displayEvent(self, name, date, start, end, description, contact):
+    #   pass;
+
+    #on_submit assign all variable values
+    def on_submit(self, instance):
+        inputEN = self.eventName.text
+        inputED = self.eventDate.text
+        inputST = self.eventStartTime.text
+        inputET = self.eventEndTime.text
+        inputEDes = self.eventDescription.text
+        inputEC = self.eventContact.text
+
+       #displayEvent(inputEN, inputED, inputST, inputET, inputEDes, inputEC)
+
+    
+
+
+
+
+        
+        
 
 
 if __name__ == "__main__":

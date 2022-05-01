@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 import Global
 
-class MainApp(App):
+class EventForm(App):
     def build(self):
         
         main_layout = BoxLayout(orientation="vertical")
@@ -60,6 +60,6 @@ class MainApp(App):
         
 
 
-if __name__ == "__main__":
-    app = MainApp()
-    app.run()
+#if __name__ == "__main__":
+    #app = EventForm()
+    #app.run()

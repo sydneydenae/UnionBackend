@@ -1,5 +1,5 @@
 import Global
-import event
+import event_form
 from pickle import GLOBAL
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
@@ -8,15 +8,15 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 import Global
 
-class Event(App):
+class PrintEvent(App):
     def build(self):
         #Runs the app in main.py to get values for variable
-        submissionForm = event.MainApp()
+        submissionForm = event_form.EventForm()
         submissionForm.run()
 
         main_layout = BoxLayout(orientation="vertical")
         
-        
+        #I want to create an Event object based on input vars
         self.eventName = Label(text=Global.NAME)
         self.eventDate = Label(text=Global.DATE)
         self.eventStartTime = Label(text=Global.STARTTIME)
@@ -40,5 +40,5 @@ class Event(App):
 
 
 if __name__ == "__main__":
-    app2 = Event()
+    app2 = PrintEvent()
     app2.run()

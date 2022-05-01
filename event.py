@@ -8,22 +8,22 @@ class MainApp(App):
         
         main_layout = BoxLayout(orientation="vertical")
         self.eventName = TextInput(
-            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event name"
+            multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter the event name"
         )
         self.eventDate = TextInput(
-            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event date (MM/DD/YYYY)"
+            multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter the event date (MM/DD/YYYY)"
         )
         self.eventStartTime = TextInput(
-            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event start time(HH:MM)"
+            multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter the event start time(HH:MM)"
         )
         self.eventEndTime = TextInput(
-            multiline=False, readonly=False, halign="center", font_size=55, text="Enter the event end time(HH:MM)"
+            multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter the event end time(HH:MM)"
         )
         self.eventDescription = TextInput(
-            multiline=True, readonly=False, halign="center", font_size=55, text="Enter a description for the event"
+            multiline=True, readonly=False, halign="center", font_size=55, hint_text="Enter a description for the event"
         )
         self.eventContact = TextInput(
-            multiline=False, readonly=False, halign="center", font_size=55, text="Enter a contact number (###-###-####)"
+            multiline=False, readonly=False, halign="center", font_size=55, hint_text="Enter a contact number (###-###-####)"
         )
         main_layout.add_widget(self.eventName)
         main_layout.add_widget(self.eventDate)
@@ -37,6 +37,7 @@ class MainApp(App):
             text="Submit", pos_hint={"center_x": 0.5, "center_y": 0.5}
         )
         submit_button.bind(on_press=self.on_submit)
+
         main_layout.add_widget(submit_button)
 
         return main_layout

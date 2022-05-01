@@ -1,7 +1,9 @@
+from pickle import GLOBAL
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+import Global
 
 class MainApp(App):
     def build(self):
@@ -44,14 +46,14 @@ class MainApp(App):
 
     #on_submit assign all variable values
     def on_submit(self, instance):
-        inputEN = self.eventName.text
-        inputED = self.eventDate.text
-        inputST = self.eventStartTime.text
-        inputET = self.eventEndTime.text
-        inputEDes = self.eventDescription.text
-        inputEC = self.eventContact.text
+        Global.NAME = self.eventName.text
+        Global.DATE = self.eventDate.text
+        Global.STARTTIME = self.eventStartTime.text
+        Global.ENDTIME = self.eventEndTime.text
+        Global.DESCRIPTION = self.eventDescription.text
+        Global.CONTACT = self.eventContact.text
         
-        self.display_event(inputEN, inputED, inputST, inputET, inputEDes, inputEC)
+        self.display_event(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.DESCRIPTION, Global.CONTACT)
     
     def display_event(self, name, date, start, end, description, contact):
         print(name)
@@ -60,14 +62,6 @@ class MainApp(App):
         print(end)
         print(description)
         print(contact)
-
-    
-
-
-
-
-        
-        
 
 
 if __name__ == "__main__":

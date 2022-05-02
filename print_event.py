@@ -19,9 +19,20 @@ class PrintEvent(App):
 
         main_layout = BoxLayout(orientation="vertical")
         
-        #I want to create an Event object based on input vars
+        #I want to create an Event Object based on input vars
         newEventObj = event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT)
         events.append(newEventObj)
+
+        #Prompt user if they have another event to input
+        addEvent = input("Do you have another event to enter?(y/n)")
+
+        if addEvent.lower() == "y":
+            submissionForm.run()
+
+            newEventObj2 = event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT)
+            events.append(newEventObj2)
+
+
 
         for my_event in events:
             main_layout.add_widget(Label(text="Event Name: " + my_event.returnName()))
@@ -31,17 +42,7 @@ class PrintEvent(App):
             main_layout.add_widget(Label(text="Event Location: " + my_event.returnLocation()))
             main_layout.add_widget(Label(text="Event Description: " + my_event.returnDescription()))
             main_layout.add_widget(Label(text="Event contact #: " + my_event.returnContact()))
-    
-        
 
-
-        # main_layout.add_widget(self.eventName)
-        # main_layout.add_widget(self.eventDate)
-        # main_layout.add_widget(self.eventStartTime)
-        # main_layout.add_widget(self.eventEndTime)
-        # main_layout.add_widget(self.eventLocation)
-        # main_layout.add_widget(self.eventDescription)
-        # main_layout.add_widget(self.eventContact)
         
         return main_layout
 

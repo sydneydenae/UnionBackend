@@ -19,19 +19,13 @@ class PrintEvent(App):
 
         main_layout = BoxLayout(orientation="vertical")
         
-        #I want to create an Event Object based on input vars
-        newEventObj = event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT)
-        events.append(newEventObj)
 
         #Prompt user if they have another event to input
         addEvent = input("Do you have another event to enter?(y/n)")
-
-        if addEvent.lower() == "y":
+        while addEvent.lower() == "y":
             submissionForm.run()
-
-            newEventObj2 = event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT)
-            events.append(newEventObj2)
-
+            events.append(event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT))
+            addEvent = input("Do you have another event to enter?(y/n)")
 
 
         for my_event in events:

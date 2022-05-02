@@ -11,7 +11,7 @@ import Global
 
 class PrintEvent(App):
     def build(self):
-        
+        events = []
 
         #Runs the app in main.py to get values for variable
         submissionForm = event_form.EventForm()
@@ -21,10 +21,11 @@ class PrintEvent(App):
         
         #I want to create an Event object based on input vars
         newEventObj = event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT)
+        events.append(newEventObj)
 
-
-        print(Global.NAME)
-        newEventObj.returnName()
+        for my_event in events:
+            print(my_event.returnName())
+    
         
 
 

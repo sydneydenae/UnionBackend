@@ -54,11 +54,10 @@ class EventForm(App):
         Global.DATE = self.eventDate.text
         Global.STARTTIME = self.eventStartTime.text
         Global.ENDTIME = self.eventEndTime.text
-        Global.LOCATION = self.eventDescription.text
+        Global.LOCATION = self.eventLocation.text
         Global.DESCRIPTION = self.eventDescription.text
         Global.CONTACT = self.eventContact.text
         
-
 
 #if __name__ == "__main__":
     #app = EventForm()

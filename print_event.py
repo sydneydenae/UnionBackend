@@ -24,7 +24,13 @@ class PrintEvent(App):
         events.append(newEventObj)
 
         for my_event in events:
-            print(my_event.returnName())
+            main_layout.add_widget(Label(text="Event Name: " + my_event.returnName()))
+            main_layout.add_widget(Label(text="Event Date: " + my_event.returnDate()))
+            main_layout.add_widget(Label(text="Event Start Time: " + my_event.returnStartTime()))
+            main_layout.add_widget(Label(text="Event End Time: " + my_event.returnEndTime()))
+            main_layout.add_widget(Label(text="Event Location: " + my_event.returnLocation()))
+            main_layout.add_widget(Label(text="Event Description: " + my_event.returnDescription()))
+            main_layout.add_widget(Label(text="Event contact #: " + my_event.returnContact()))
     
         
 

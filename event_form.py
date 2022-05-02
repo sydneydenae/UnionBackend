@@ -58,6 +58,16 @@ class EventForm(App):
         Global.DESCRIPTION = self.eventDescription.text
         Global.CONTACT = self.eventContact.text
         
+        #Clear Text Boxes
+        self.eventName.text = ""
+        self.eventDate.text = ""
+        self.eventStartTime.text = ""
+        self.eventEndTime.text = ""
+        self.eventLocation.text = ""
+        self.eventDescription.text = ""
+        self.eventContact.text = ""
+
+        
 
 #if __name__ == "__main__":
     #app = EventForm()

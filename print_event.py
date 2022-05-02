@@ -33,7 +33,9 @@ class PrintEvent(App):
             submissionForm.run()
             events.append(event_obj.EventObject(Global.NAME, Global.DATE, Global.STARTTIME, Global.ENDTIME, Global.LOCATION, Global.DESCRIPTION, Global.CONTACT))
             addEvent = input("Do you have another event to enter?(y/n)")
-
+        
+        main_layout.add_widget(Label())
+        main_layout.add_widget(Label(text="DC Union "))
         main_layout.add_widget(Label())
         for my_event in events:
             main_layout.add_widget(Label(text="Event Name: " + my_event.returnName()))
